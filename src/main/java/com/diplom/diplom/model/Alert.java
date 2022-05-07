@@ -1,6 +1,7 @@
 package com.diplom.diplom.model;
 
 import com.diplom.diplom.AlertStatus;
+import com.diplom.diplom.SystemGroup;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,9 +37,9 @@ public class Alert {
     @Column(nullable = false, columnDefinition = "varchar(25000)")
     private String description;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false)
-    private String nameSystem;
+    private SystemGroup idSystem;
 
     @NotBlank
     @Column(nullable = false)

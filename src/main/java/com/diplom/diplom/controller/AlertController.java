@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/api/alerts")
 @RequiredArgsConstructor
@@ -18,23 +20,21 @@ public class AlertController {
 
     @PostMapping("/new")
     public void createNewAlert(@RequestBody Alert alert) {
-        //TODO
+        alertService.createAlert(alert);
     }
 
     @PutMapping("/{id}")
-    public void updateAlert(@PathVariable int id, @RequestBody Alert alert) {
-        //TODO
+    public void updateAlert(@PathVariable UUID id, @RequestBody Alert alert) {
+        alertService.updateAlert(id, alert);
     }
 
     @GetMapping("/{id}")
-    public Alert getAlert(@PathVariable int id) {
-        //TODO
-        return null;
+    public Alert getAlert(@PathVariable UUID id) {
+        return alertService.getAlert(id);
     }
 
-    @GetMapping("/all/{idSystem}")
-    public ResponseEntity<Iterable<Alert>> getAllAlertsBySystem(@PathVariable int idSystem) {
-        //TODO
-        return null;
+    @GetMapping("/all/{systemName}")
+    public ResponseEntity<Iterable<Alert>> getAllAlertsBySystem(@PathVariable String systemName) {
+        return ResponseEntity.ok(alertService.getAllBySystem(systemName));
     }
 }
