@@ -1,14 +1,13 @@
 package com.diplom.diplom.model;
 
-import com.diplom.diplom.SystemGroup;
+import com.diplom.diplom.status.SystemGroup;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -23,7 +22,9 @@ public class ShiftComposition {
     @Column(nullable = false)
     private SystemGroup systemGroup;
 
+
     @NotNull
+    @ElementCollection
     @Column(nullable = false)
-    private String fio;
+    List<String> people = new ArrayList<>(4);
 }

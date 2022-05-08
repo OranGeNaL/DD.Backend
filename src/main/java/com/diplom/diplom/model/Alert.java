@@ -1,7 +1,7 @@
 package com.diplom.diplom.model;
 
-import com.diplom.diplom.AlertStatus;
-import com.diplom.diplom.SystemGroup;
+import com.diplom.diplom.status.AlertStatus;
+import com.diplom.diplom.status.SystemGroup;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;

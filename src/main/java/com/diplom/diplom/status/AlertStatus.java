@@ -1,4 +1,4 @@
-package com.diplom.diplom;
+package com.diplom.diplom.status;
 
 public enum AlertStatus {
     WAIT_TO_GET_WORK,
