@@ -1,6 +1,7 @@
 package com.diplom.diplom.model;
 
 import com.diplom.diplom.status.SystemGroup;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,9 +14,11 @@ import java.util.UUID;
 @Data
 @Entity
 @NoArgsConstructor
+@Table
 public class ShiftComposition {
     @Id
     @GeneratedValue
+    @JsonIgnore
     private UUID id;
 
     @NotNull

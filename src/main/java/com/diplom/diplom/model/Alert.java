@@ -7,10 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -19,6 +16,7 @@ import java.util.UUID;
 @Data
 @Entity
 @NoArgsConstructor
+@Table
 public class Alert {
     @Id
     @GeneratedValue
@@ -39,10 +37,11 @@ public class Alert {
 
     @NotNull
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private SystemGroup idSystem;
 
     @NotBlank
-    @Column(nullable = false)
+    @Column
     private String worker;
 
     @Column(columnDefinition = "varchar(25000)")
@@ -50,5 +49,6 @@ public class Alert {
 
     @Column
     @NotNull
+    @Enumerated(EnumType.STRING)
     private AlertStatus status;
 }

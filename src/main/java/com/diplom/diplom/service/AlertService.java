@@ -1,5 +1,6 @@
 package com.diplom.diplom.service;
 
+import com.diplom.diplom.exception.StatusIsLessThanExceptedException;
 import com.diplom.diplom.status.SystemGroup;
 import com.diplom.diplom.exception.AlertNotFoundException;
 import com.diplom.diplom.model.Alert;
@@ -22,8 +23,9 @@ public class AlertService {
 
 
     public void updateAlert(UUID id, Alert alert) {
-        if (alertRepository.existsById(id)) {
-            throw new AlertNotFoundException();
+        Alert oldAlert = alertRepository.findById(id).orElseThrow(AlertNotFoundException::new);
+        if (alert.getStatus().compareTo(oldAlert.getStatus()) < 0) {
+            throw new StatusIsLessThanExceptedException();
         }
         alert.setId(id);
         alertRepository.save(alert);

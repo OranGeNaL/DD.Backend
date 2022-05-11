@@ -14,11 +14,11 @@ public class ChatService {
     private final ChatRepository chatRepository;
 
     public void addMessage(String systemName, String fio, String message) {
-        chatRepository.save(Chat.builder()
-                .systemGroup(SystemGroup.valueOf(systemName))
-                .fio(fio)
-                .message(message)
-                .build());
+        Chat chat = new Chat();
+        chat.setSystemGroup(SystemGroup.valueOf(systemName));
+        chat.setFio(fio);
+        chat.setMessage(message);
+        chatRepository.save(chat);
     }
 
     public Iterable<Chat> getAllMessageBySystem(String systemName) {
