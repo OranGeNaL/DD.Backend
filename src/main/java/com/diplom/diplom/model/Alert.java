@@ -50,5 +50,6 @@ public class Alert {
     @Column
     @NotNull
     @Enumerated(EnumType.ORDINAL)
+    
     private AlertStatus status;
 }

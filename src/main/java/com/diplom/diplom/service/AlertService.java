@@ -36,8 +36,8 @@ public class AlertService {
                 .orElseThrow(AlertNotFoundException::new);
     }
 
-    public Iterable<Alert> getAllBySystem(String systemName) {
-        return alertRepository.findAllByIdSystemAndDateBetween(SystemGroup.valueOf(systemName),
+    public Iterable<Alert> getAllBySystem(String nameSystem) {
+        return alertRepository.findAllByIdSystemAndDateBetween(SystemGroup.valueOf(nameSystem),
                 LocalDateTime.now().minusHours(12),
                 LocalDateTime.now());
     }

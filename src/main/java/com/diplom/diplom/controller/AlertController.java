@@ -33,8 +33,8 @@ public class AlertController {
         return alertService.getAlert(id);
     }
 
-    @GetMapping("/all/{systemName}")
-    public ResponseEntity<Iterable<Alert>> getAllAlertsBySystem(@PathVariable String systemName) {
-        return ResponseEntity.ok(alertService.getAllBySystem(systemName));
+    @GetMapping("/all/{nameSystem}")
+    public ResponseEntity<Iterable<Alert>> getAllAlertsBySystem(@PathVariable String nameSystem) {
+        return ResponseEntity.ok(alertService.getAllBySystem(nameSystem));
     }
 }
