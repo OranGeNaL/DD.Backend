@@ -23,6 +23,7 @@ public class ShiftComposition {
 
     @NotNull
     @Column(nullable = false)
+    @Enumerated(EnumType.ORDINAL)
     private SystemGroup systemGroup;
 
 

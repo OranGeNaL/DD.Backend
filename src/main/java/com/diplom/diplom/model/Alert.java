@@ -37,7 +37,7 @@ public class Alert {
 
     @NotNull
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private SystemGroup idSystem;
 
     @NotBlank
@@ -49,6 +49,6 @@ public class Alert {
 
     @Column
     @NotNull
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private AlertStatus status;
 }
