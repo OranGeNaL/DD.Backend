@@ -28,6 +28,7 @@ public class AlertService {
             throw new StatusIsLessThanExceptedException();
         }
         alert.setId(id);
+        alert.setDate(oldAlert.getDate());
         alertRepository.save(alert);
     }
 

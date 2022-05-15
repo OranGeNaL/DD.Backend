@@ -5,7 +5,7 @@ import com.diplom.diplom.status.SystemGroup;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -27,7 +27,7 @@ public class Alert {
     private String header;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @UpdateTimestamp
+    @CreationTimestamp
     @Column(nullable = false)
     private LocalDateTime date;
 
@@ -50,6 +50,6 @@ public class Alert {
     @Column
     @NotNull
     @Enumerated(EnumType.ORDINAL)
-    
+
     private AlertStatus status;
 }

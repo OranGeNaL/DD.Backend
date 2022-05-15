@@ -17,8 +17,12 @@ public class ShiftCompositionService {
         if (shiftComposition == null) {
             shiftComposition = new ShiftComposition();
             shiftComposition.setSystemGroup(systemName);
+            shiftComposition.getPeople().add("пусто");
+            shiftComposition.getPeople().add("пусто");
+            shiftComposition.getPeople().add("пусто");
+            shiftComposition.getPeople().add("пусто");
         }
-        shiftComposition.getPeople().add(slotInd, fio);
+        shiftComposition.getPeople().set(slotInd, fio);
         shitCompositionRepository.save(shiftComposition);
     }
 

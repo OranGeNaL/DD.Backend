@@ -18,7 +18,7 @@ public class ShiftCompositionController {
     @PutMapping("/{systemName}")
     public void takePlace(@PathVariable String systemName,
                           @RequestParam int slotInd,
-                          @RequestParam String fio) {
+                          @RequestBody String fio) {
         shiftCompositionService.takePlace(SystemGroup.valueOf(systemName), slotInd, fio);
     }
 
