@@ -17,5 +17,5 @@ RUN mvn package
 FROM base AS app
 COPY --from=build /opt/source/target /app
 WORKDIR /app
-#ENTRYPOINT [ "ls" ]
 ENTRYPOINT [ "java", "-jar", "diplom-0.0.1-SNAPSHOT.jar"]
+##TEST CHANGES
